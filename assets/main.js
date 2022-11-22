@@ -63,7 +63,7 @@ function initListeners(){
 /**
  * Funcion para realizar las operaciones del ejemplo 1 donde se incrementa 1 al valor de un span numérico. 
  */
-function example1(event) {
+function example1() {
     console.log("Entrando al método example1 sin parámetros");
     // Se recupera el elemento span
     const element = element1;
