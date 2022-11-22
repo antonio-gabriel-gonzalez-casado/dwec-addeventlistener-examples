@@ -56,7 +56,7 @@ function example1() {
 
 /************ EJEMPLO DE LISTENER CON INTERRUPCIÓN ************/
 /**
- * Funcion para realizar las operaciones del ejemplo 1 donde se incrementa 1 al valor de un span numérico. 
+ * Funcion para realizar las operaciones del ejemplo 2 donde se incrementa 1 al valor de un span numérico hasta que llega a 3 y entonces el listner es abortado. 
  */
 function example2() {
     console.log("Entrando al método example1 sin parámetros");
