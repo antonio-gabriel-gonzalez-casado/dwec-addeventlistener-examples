@@ -26,9 +26,28 @@
     <span id="example4">1</span>
 
     <h2>Desactivar Listener mediante funciones flecha o anónima</h2>
-    <p>No funciona porque las instancias de la función definida por flecha y anónima son distintas</p>
+    <p>NO FUNCIONA: porque las instancias de la función definida por flecha y anónima son distintas</p>
     <span id="example5">1</span>
     <button id="example5-desactivate">Desactivar Listener</button>
+
+    <h2>Crear un listener por cada td de la tabla y desactivarlo cuando se cumpla una condición</h2>
+    <div id="div-example6">
+        <table id="table-example6">
+          <tr>
+            <td id="columna1">Columna 1</td>
+            <td id="columna2">Columna 2</td>
+          </tr>  
+          <tr> 
+            <td id="td1">1</td>
+            <td id="td1">2</td>
+          </tr>
+          <tr>
+            <td id="td1">1</td>
+            <td id="td1">4</td>
+          </tr>
+        </table>
+    </div>
+        
       
 
     <script src="/assets/main.js"></script>

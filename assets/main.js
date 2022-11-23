@@ -10,6 +10,8 @@ const element3 = document.getElementById("example3");
 const element4 = document.getElementById("example4");
 const element5 = document.getElementById("example5");
 const button5 = document.getElementById("example5-desactivate");
+const tableExample6 = document.getElementById("table-example6");
+
 
 /**
  * Inicializa todos los listeners de los ejemplos
@@ -37,6 +39,17 @@ function initListeners(){
     }, false);
     // Desactivación del listener del ejercicio 5
     button5.addEventListener("click", desactivateExample5, false);
+
+    // Activar un listener en cada td de la tabla del ejemplo 6
+    let rows = tableExample6.getElementsByTagName("tr");
+    for (let i = 0; i < rows.length; i++) {
+        let row = rows[i];
+        let columns = row.getElementsByTagName("td");
+        for (let j = 0; j < columns.length; j++) {
+            let cell = columns[j];
+            cell.addEventListener("click", example6, false);
+        }
+    }
     
 
 }
@@ -141,7 +154,7 @@ function example2() {
 
 /************ EJEMPLO DE DESACTIVACIÓN DE LISTENER TRABAJANDO CON LA INTERFAZ EVENT ************/
 /**
- * Funcion para realizar las operaciones del ejemplo 4 donde se incrementa 1 al valor de un span numérico 
+ * Funcion para realizar las operaciones del ejemplo 5 donde se incrementa 1 al valor de un span numérico 
  * hasta que llega a 3 y entonces el listener es desactivado. 
  * @param {String} currentNumberStr Valor en cadena del número actual del span
  */
@@ -158,6 +171,7 @@ function example2() {
 
 /**
  * Funcion para desactivar el listener
+ * NO FUNCIONA PORQUE LA FUNCIÓN FLECHA QUE SE DECLARA AQUÍ ES OTRA INSTACIA. 
  */
 function desactivateExample5(){
     console.log("Entrando al metodo desactivateExample5");
@@ -168,6 +182,27 @@ function desactivateExample5(){
 }
 
 
+
+/************ EJEMPLO CREACIÓN DE LISTENER POR CADA TD Y DESACTIVARLO SI SE CUMPLE CONDICIÓN ************/
+/**
+ * Funcion para realizar las operaciones del ejemplo 6 donde se incrementa 1 al valor de un td numérico 
+ * hasta que llega a 3 y entonces el listener es desactivado. 
+ */
+ function example6() {
+    console.log("Entrando al método example6 sin parámetros");
+    // Se recupera el elemento a través de currenTarget que contiene la referencia al elemento
+    // que ha invocado el evento.
+    const element = event.currentTarget;
+    // Se incrementa a 1 el texto númerico que haya contenido en el span
+    let currentNumberStr = addOne(element.innerText);
+    // se sobreescribe el valor del span con el nuevo número
+    element.innerText = currentNumberStr;
+    if (currentNumberStr === "3"){
+        element.removeEventListener("click", example6, false);
+        console.log("Listener desactivado");
+    }
+    console.log("Saliendo del método example6 sin parámetros");
+}
 
 
 
