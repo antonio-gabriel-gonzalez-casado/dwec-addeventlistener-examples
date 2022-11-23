@@ -1,0 +1,14 @@
+div{
+    margin: 10px;
+    border: 1px solid blue;
+}
+
+p{
+    margin: 10px;
+    border: 1px solid red;
+}
+
+span{
+    margin: 10px;
+    border: 1px solid yellow;
+}

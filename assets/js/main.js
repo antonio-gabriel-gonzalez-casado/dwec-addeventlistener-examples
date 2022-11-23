@@ -11,6 +11,15 @@ const element4 = document.getElementById("example4");
 const element5 = document.getElementById("example5");
 const button5 = document.getElementById("example5-desactivate");
 const tableExample6 = document.getElementById("table-example6");
+const element7Div = document.getElementById("example7-div");
+const element7P = document.getElementById("example7-p");
+const element7Span = document.getElementById("example7-span");
+const element8Div = document.getElementById("example8-div");
+const element8P = document.getElementById("example8-p");
+const element8Span = document.getElementById("example8-span");
+const element9Div = document.getElementById("example9-div");
+const element9P = document.getElementById("example9-p");
+const element9Span = document.getElementById("example9-span");
 
 
 /**
@@ -50,7 +59,21 @@ function initListeners(){
             cell.addEventListener("click", example6, false);
         }
     }
-    
+
+    //Ejemplos de captura
+    element7Div.addEventListener("click", messageDiv, false);
+    element7P.addEventListener("click", messageP, false);
+    element7Span.addEventListener("click", messageSpan, false);
+
+    //Ejemplos de burbujeo
+    element8Div.addEventListener("click", messageDiv, true);
+    element8P.addEventListener("click", messageP, true);
+    element8Span.addEventListener("click", messageSpan, true);
+
+    //Ejemplos de burbujeo y captura mezclado
+    element9Div.addEventListener("click", messageDiv, true);
+    element9P.addEventListener("click", messageP, false);
+    element9Span.addEventListener("click", messageSpan, true);
 
 }
 
@@ -133,13 +156,13 @@ function example2() {
 /**
  * Funcion para realizar las operaciones del ejemplo 4 donde se incrementa 1 al valor de un span numérico 
  * hasta que llega a 3 y entonces el listener es desactivado. 
- * @param {Event} event Interfaz del evento que ha desencadenado el listener.
+ * @param {Event} e Interfaz del evento que ha desencadenado el listener.
  */
- function example4(event) {
-    console.log("Entrando al método example4 con parámetro event:"+event);
+ function example4(e) {
+    console.log("Entrando al método example4 con parámetro event:"+e);
     // Se recupera el elemento a través de currenTarget que contiene la referencia al elemento
     // que ha invocado el evento.
-    const element = event.currentTarget;
+    const element = e.currentTarget;
     // Se incrementa a 1 el texto númerico que haya contenido en el span
     let currentNumberStr = addOne(element.innerText);
     // se sobreescribe el valor del span con el nuevo número
@@ -188,11 +211,11 @@ function desactivateExample5(){
  * Funcion para realizar las operaciones del ejemplo 6 donde se incrementa 1 al valor de un td numérico 
  * hasta que llega a 3 y entonces el listener es desactivado. 
  */
- function example6() {
-    console.log("Entrando al método example6 sin parámetros");
+ function example6(e) {
+    console.log("Entrando al método example6 con parámetros e"+e);
     // Se recupera el elemento a través de currenTarget que contiene la referencia al elemento
     // que ha invocado el evento.
-    const element = event.currentTarget;
+    const element = e.currentTarget;
     // Se incrementa a 1 el texto númerico que haya contenido en el span
     let currentNumberStr = addOne(element.innerText);
     // se sobreescribe el valor del span con el nuevo número
@@ -201,7 +224,23 @@ function desactivateExample5(){
         element.removeEventListener("click", example6, false);
         console.log("Listener desactivado");
     }
-    console.log("Saliendo del método example6 sin parámetros");
+    console.log("Saliendo del método example6 sin resultados");
+}
+
+/************ EJEMPLOS CAPTURA Y BURBUJEO ************/
+/**
+ * Funciones para realizar las operaciones del ejemplo 7 para simular la captura. 
+ */
+function messageDiv() {
+    alert("Evento del <div>");
+}
+
+function messageP() {
+    alert("Evento del <p>");
+}
+
+function messageSpan() {
+    alert("Evento del <span>");
 }
 
 
